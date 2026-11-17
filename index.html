@@ -2,74 +2,128 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f4efe6">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161310" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("shelf-theme");
+    if (t !== "light" && t !== "dark") return;
+    var meta = document.querySelector('meta[name="color-scheme"]');
+    if (meta) meta.content = t;
+    document.documentElement.setAttribute("data-theme", t);
+    var color = t === "dark" ? "#161310" : "#f4efe6";
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (node) {
+      node.content = color;
+    });
+  } catch (e) {}
+})();
+</script>
 <meta name="description" content="A home for the workout, recipes, week plan, Matthew study, weekly lesson, family time, games, and the Davenport table.">
-<title>All pages</title>
+<title>All pages | shea-nelson.github.io</title>
+<link rel="canonical" href="https://shea-nelson.github.io/">
 <link rel="icon" href="shelf/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Nunito:wght@400;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shelf/base.css">
 <link rel="stylesheet" href="home.css">
-<script src="shelf/theme-init.js"></script>
 </head>
 <body data-root="./">
-<a class="skip" href="#app">Skip to pages</a>
+<a class="skip" href="#content">Skip to pages</a>
+<header class="site">
+  <a class="brand" href="https://shea-nelson.github.io/">
+    <img src="shelf/favicon.svg" alt="" width="28" height="28">
+    <span>Pages</span>
+  </a>
+  <nav aria-label="Pages on this site">
+    <ul>
+      <li><a href="https://shea-nelson.github.io/workout-app/">Workout</a></li>
+      <li><a href="https://shea-nelson.github.io/kitchen/recipes/">Recipes</a></li>
+      <li><a href="https://shea-nelson.github.io/kitchen/planner/">Planner</a></li>
+      <li><a href="https://shea-nelson.github.io/bible-study/bible/">Bible</a></li>
+      <li><a href="https://shea-nelson.github.io/grok-lessons/">Lessons</a></li>
+      <li><a href="https://shea-nelson.github.io/family-time/">Family</a></li>
+      <li><a href="https://shea-nelson.github.io/game-library/">Games</a></li>
+      <li><a href="https://shea-nelson.github.io/" aria-current="page">All pages</a></li>
+      <li><a href="https://shea-nelson.github.io/davenport-table/" target="_blank" rel="noopener noreferrer">Davenport<span class="sr"> (opens in a new tab)</span></a></li>
+    </ul>
+  </nav>
+  <button type="button" class="theme-btn" aria-pressed="false"><span class="to-dark">Dark</span><span class="to-light">Light</span></button>
+</header>
 <main id="app">
   <header class="wrap home-hero">
     <p class="kicker">shea-nelson.github.io</p>
-    <h1>Everything <em>published</em> here</h1>
+    <h1 id="content" tabindex="-1">Everything <em>published</em> here</h1>
     <p class="lede">Workout, the kitchen, the Gospel of Matthew study, the weekly lesson, family time, the game list, and the Davenport table.</p>
   </header>
-  <div class="wrap home-grid">
-    <a class="home-card" href="https://shea-nelson.github.io/workout-app/">
-      <span class="kicker">Workout</span>
-      <strong>Today's workout</strong>
-      <span>Sets, rest timer, warm-up, and cool-down.</span>
-    </a>
-    <a class="home-card" href="https://shea-nelson.github.io/kitchen/recipes/">
-      <span class="kicker">Kitchen</span>
-      <strong>Daily recipe</strong>
-      <span>Ingredient checks, cooking timers, and notes.</span>
-    </a>
-    <a class="home-card" href="https://shea-nelson.github.io/kitchen/planner/">
-      <span class="kicker">Kitchen</span>
-      <strong>Week plan</strong>
-      <span>Dinner plan, prep checks, and a grocery checklist.</span>
-    </a>
-    <a class="home-card" href="https://shea-nelson.github.io/bible-study/bible/">
-      <span class="kicker">Bible</span>
-      <strong>The Gospel of Matthew, Every Word</strong>
-      <span>Study hub, plus Matthew 1 and Matthew 2.</span>
-    </a>
-    <a class="home-card" href="https://shea-nelson.github.io/grok-lessons/">
-      <span class="kicker">Lesson</span>
-      <strong>Grok Bot weekly lesson</strong>
-      <span>This week’s lesson, a dated archive, and official xAI guides.</span>
-    </a>
-    <a class="home-card" href="https://shea-nelson.github.io/family-time/">
-      <span class="kicker">Family</span>
-      <strong>Family Time Before the Nest Empties</strong>
-      <span>Open weekends, breaks, and trip notes through August 2027.</span>
-    </a>
-    <a class="home-card" href="https://shea-nelson.github.io/finn-grades/">
-      <span class="kicker">School</span>
-      <strong>Finn's School Year</strong>
-      <span>Finn's grades, trends, teacher notes, attendance, and Roblox time, week by week.</span>
-    </a>
-    <a class="home-card" href="https://shea-nelson.github.io/game-library/">
-      <span class="kicker">Games</span>
-      <strong>Board Game Collection &amp; Davenport Picks</strong>
-      <span>The public BGG list, plus sourced recommendations. Not a packing list.</span>
-    </a>
-    <a class="home-card" href="https://shea-nelson.github.io/davenport-table/" target="_blank" rel="noopener noreferrer">
-      <span class="kicker">Separate site</span>
-      <strong>The Davenport Table</strong>
-      <span>Four nights at the long table. Opens in a new tab.</span>
-    </a>
-  </div>
+  <ul class="wrap home-grid" role="list">
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/workout-app/">
+        <span class="kicker">Workout</span>
+        <strong>Today's workout</strong>
+        <span>Sets, rest timer, warm-up, and cool-down.</span>
+      </a>
+    </li>
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/kitchen/recipes/">
+        <span class="kicker">Kitchen</span>
+        <strong>Daily recipe</strong>
+        <span>Ingredient checks, cooking timers, and notes.</span>
+      </a>
+    </li>
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/kitchen/planner/">
+        <span class="kicker">Kitchen</span>
+        <strong>Week plan</strong>
+        <span>Dinner plan, prep checks, and a grocery checklist.</span>
+      </a>
+    </li>
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/bible-study/bible/">
+        <span class="kicker">Bible</span>
+        <strong>The Gospel of Matthew, Every Word</strong>
+        <span>Study hub, plus Matthew 1 and Matthew 2.</span>
+      </a>
+    </li>
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/grok-lessons/">
+        <span class="kicker">Lesson</span>
+        <strong>Grok Bot weekly lesson</strong>
+        <span>This week’s lesson, a dated archive, and official xAI guides.</span>
+      </a>
+    </li>
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/family-time/">
+        <span class="kicker">Family</span>
+        <strong>Family Time Before the Nest Empties</strong>
+        <span>Open weekends, breaks, and trip notes through August 2027.</span>
+      </a>
+    </li>
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/finn-grades/">
+        <span class="kicker">School</span>
+        <strong>Finn's School Year</strong>
+        <span>Finn's grades, trends, teacher notes, attendance, and Roblox time, week by week.</span>
+      </a>
+    </li>
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/game-library/">
+        <span class="kicker">Games</span>
+        <strong>Board Game Collection &amp; Davenport Picks</strong>
+        <span>The public BGG list, plus sourced recommendations. Not a packing list.</span>
+      </a>
+    </li>
+    <li>
+      <a class="home-card" href="https://shea-nelson.github.io/davenport-table/" target="_blank" rel="noopener noreferrer">
+        <span class="kicker">Separate site</span>
+        <strong>The Davenport Table</strong>
+        <span>Four nights at the long table. Opens in a new tab.</span>
+      </a>
+    </li>
+  </ul>
 </main>
 <script type="module" src="shelf/nav.js"></script>
 </body>
